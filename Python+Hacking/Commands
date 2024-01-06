@@ -1,0 +1,6 @@
+1. netdiscover -r 192.168.159.1/24
+        :- Discover all the devices that are connected to the same network.
+
+2. ARP(Address Resolution Protocol) Request
+       : Hacker will send the request that who has this IP then respective device will
+         send it's MAC address.
