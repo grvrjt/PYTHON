@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 import scapy.layers.l2
 from scapy.all import *
+import optparse
+
+
+def get_client_ip():
+    parser = optparse.OptionParser()
+    parser.add_option("-t", "--target", dest="target_ip", help="Please enter the target ip ")
+    (options, arguments) = parser.parse_args()
+    target = options.target_ip
+    return target
 
 
 def scan(ip):
@@ -24,6 +33,7 @@ def print_results(results_list):
         print(client["ip"] + "\t\t" + client["mac"])
 
 
-scan_results = scan("192.168.159.1/24")
+client_ip = get_client_ip()
+scan_results = scan(client_ip)
 print_results(scan_results)
 # TODO: scapy.ls(scapy.layers.l2.ARP(pdst=ip))
