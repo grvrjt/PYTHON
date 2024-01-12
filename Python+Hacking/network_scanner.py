@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 import scapy.layers.l2
 from scapy.all import *
-import optparse
+import argparse
 
 
 def get_client_ip():
-    parser = optparse.OptionParser()
-    parser.add_option("-t", "--target", dest="target_ip", help="Please enter the target ip ")
-    (options, arguments) = parser.parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-t", "--target", dest="target_ip", help="Target IP / IP range ")
+    options = parser.parse_args()
     target = options.target_ip
     return target
 
